@@ -12,6 +12,25 @@
 
 This document provides a concise reference for understanding and using PostgreSQL within the OT-MICROSERVICES architecture. It explains its purpose, core features, setup requirements, and dependencies—specifically focusing on its role in services like attendance-api. It is intended for developers, DevOps engineers, and system administrators working on microservices that require relational data storage.
 
+## Table of Contents
+
+- [What is PostgreSQL ?](#what-is-postgresql-)
+- [Why Use PostgreSQL ?](#why-use-postgresql-)
+- [Key Features](#key-features)
+- [Getting Started](#getting-started)
+  - [Pre-requisites](#pre-requisites)
+  - [Software Overview](#software-overview)
+  - [System Requirements](#system-requirements)
+  - [Important Ports](#important-ports)
+- [Dependencies](#dependencies)
+  - [Run-time Dependencies](#run-time-dependencies)
+  - [Build-time Dependencies](#build-time-dependencies)
+- [PostgreSQL Use Case in attendance-api](#postgresql-use-case-in-attendance-api)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
+- [Reference](#reference)
+
+
 ## What is PostgreSQL ?
 
 **PostgreSQL** (often abbreviated as **Postgres**) is a powerful, open-source object-relational database system. It is known for its reliability, feature robustness, and standards compliance. Originally developed at the University of California, Berkeley, PostgreSQL has over 30 years of active development and a proven architecture.
