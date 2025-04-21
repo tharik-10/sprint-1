@@ -1,4 +1,12 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/04bf87a3-feb4-4e8a-b99e-27353fae3cf2" alt="PostgreSQL Logo" width="500"/>
+</p>
+
 # **PostgreSQL Documentation**
+
+| Author         | Created on     | Version         | Last updated by | Last edited on |
+|----------------|----------------|-----------------|-----------------|----------------|
+| Mohamed Tharik | 2025-04-21     |     Version 1         | Mohamed Tharik  | 2025-04-21     |
 
 ## Introduction
 
