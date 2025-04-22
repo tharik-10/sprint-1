@@ -12,6 +12,31 @@ This document outlines the design principles, key features, and a working Proof 
 
 ## Table of Contents
 
+- [Introduction](#introduction)
+- [VCS Design Overview](#vcs-design-overview)
+  - [1. Architecture](#1-architecture)
+  - [2. Data Structure](#2-data-structure)
+  - [3. Branching Strategy](#3-branching-strategy)
+  - [4. Workflow Design](#4-workflow-design)
+- [Proof of Concept (POC)](#proof-of-concept-poc)
+  - [Objective](#objective)
+  - [Tools Used](#tools-used)
+  - [Steps](#steps)
+  - [Outcomes](#outcomes)
+- [VCS Setup: Installation & Configuration](#vcs-setup-installation--configuration)
+  - [Prerequisites](#prerequisites)
+  - [1. Install Git](#1-install-git)
+  - [2. Configure Git](#2-configure-git)
+  - [3. Initialize and Clone Repository](#3-initialize-and-clone-repository)
+  - [4. Authentication](#4-authentication)
+  - [5. Basic Workflow](#5-basic-workflow)
+- [Best Practices](#best-practices)
+- [Troubleshooting](#troubleshooting)
+- [Disaster Recovery](#disaster-recovery)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
+- [References](#references)
+
 ## Introduction 
 
 A Version Control System (VCS) is a critical tool that manages changes to source code over time. It allows teams to work collaboratively, track revisions, roll back changes, and maintain code integrity throughout the software development lifecycle.
