@@ -26,6 +26,9 @@ This document provides a concise reference for understanding and using PostgreSQ
   - [Run-time Dependencies](#run-time-dependencies)
   - [Build-time Dependencies](#build-time-dependencies)
 - [PostgreSQL Use Case in attendance-api](#postgresql-use-case-in-attendance-api)
+- [Monitoring](#monitoring)
+- [Disaster Recovery](#disaster-recovery)
+- [Troubleshooting](#troubleshooting)
 - [Conclusion](#conclusion)
 - [Contact Information](#contact-information)
 - [Reference](#reference)
@@ -104,6 +107,38 @@ In the `OT-MICROSERVICES/attendance-api` project, PostgreSQL is used as the prim
 - Support date/time queries and filtering for reports.
 
 The connection is defined in `app.py`, and data models (like Attendance) are mapped to PostgreSQL tables in `models/attendance.py`.
+
+##  Monitoring 
+
+|Tool | Purpose|
+|------|---------|
+|**pgAdmin** | GUI for managing and visualizing PostgreSQL|
+|**pg_stat_statements** | Analyze slow queries|
+|**Prometheus + Grafana** | Real-time performance metrics|
+
+## Disaster Recovery
+**Backup**
+```bash
+pg_dump -U <user> -d <db> -F c -f backup.dump
+```
+**Restore**
+```bash
+pg_restore -U <user> -d <db> backup.dump
+```
+**Automate with Cron**
+```bash
+0 2 * * * pg_dump -U dbuser -d app_db -F c -f /backups/db_$(date +\%F).dump
+```
+
+## Troubleshooting
+
+|Issue | Solution|
+|-------|----------|
+|**Connection Refused** | Check postgresql.service status; verify host, port, and credentials|
+|**Auth Failure** | Ensure correct username/password; update pg_hba.conf for md5 or scram-sha-256 auth|
+|**Database Does Not Exist** | Create it: createdb your_db_name|
+|**Port Conflict** | Use lsof -i:5432 to identify conflict or change the port in postgresql.conf|
+|**Permission Errors** | Ensure role has appropriate GRANT permissions|
 
 ## Conclusion 
 
