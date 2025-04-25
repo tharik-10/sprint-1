@@ -4,9 +4,9 @@
 
 # **PostgreSQL Documentation**
 
-| Created        | Last updated      | Version         | author| comment | Reviewer |
-|----------------|----------------|-----------------|-----------------|----------------|-----|
-|2025-04-21  | 2025-04-22   |     Version 1        |  Mohamed Tharik | Internal Revivew    |Priyanshu|
+| Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
+|----------------|----------------|-----------------|-----------------|-----|------|----|----|
+| 2025-04-21 | 2025-04-25   |     Version 1         |  Mohamed Tharik |Pritam|Khushi|Mukul Joshi |Piyush Upadhyay|
 
 ## Introduction
 
