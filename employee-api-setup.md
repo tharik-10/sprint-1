@@ -52,17 +52,81 @@ The employee-api follows a microservices architecture with the following compone
 - **API Layer**: The Golang-based RESTful service handling business logic.
 - **Database Layer**: ScyllaDB serves as the primary data store, while Redis is used for caching to enhance performance.
 
-**Data Flow Diagram:**
-```text
-Client 
-   │
-   ▼
-employee-api (Go Application)
-   │
-   ▼
-Redis Cache
-   │
-   ▼
-ScyllaDB
-```
+### Data Flow Diagram:
+<img src="https://github.com/user-attachments/assets/300e337d-0cc1-4c5a-9a21-e85f49ba1de2" width="300" />
 
+## Step-by-Step Installation
+### Step 1: Install Software Dependencies
+```bash
+sudo apt update
+sudo apt install -y git golang make docker.io
+```
+### Step 2: Download the required Dependencies
+```bash 
+# Create Keyring Directory
+sudo mkdir -p /etc/apt/keyrings
+
+# Add ScyllaDB GPG Key
+sudo gpg --homedir /tmp --no-default-keyring --keyring /etc/apt/keyrings/scylladb.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys a43e06657bac99e3
+
+# Add ScyllaDB Repository
+sudo wget -O /etc/apt/sources.list.d/scylla.list http://downloads.scylladb.com/deb/debian/scylla-6.2.list
+
+# Update Package List and Install ScyllaDB
+sudo apt update
+sudo apt install scylla
+
+# Run Scylla I/O Setup
+sudo scylla_io_setup
+
+# Start ScyllaDB Server
+sudo systemctl start scylla-server
+
+# Download the redis server for cache and Make for automate process
+sudo apt install redis-server make 
+
+# Download and Extract the Migrate package 
+curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
+
+# Move to System Binary Path for Migrate package 
+sudo mv migrate /usr/local/bin/migrate
+```
+### Step 4: Configure ip address of ScyllaDB with our private ip 
+```bash
+cd /etc/scylla
+sudo nano scylla.yaml
+```
+### Step 5: Create user and password for the ScyallaDB to store the data's 
+```bash
+# Login to the ScyllaDb and create user 
+cqlsh
+CREATE USER your_username WITH PASSWORD 'your_password';
+# Keyspace is like database to store a data 
+CREATE KEYSPACE employee_db WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
+```
+### Step 6: Clone the Repository
+```bash
+git clone https://github.com/OT-MICROSERVICES/employee-api.git
+cd employee-api
+```
+### Step 7: Configure ip addresses in the main files of the project 
+```bash
+sudo nano config.yaml
+sudo nano migration.json
+sudo nano main.go
+```
+### Step 8: Runs database migrations 
+```bash
+make run-migrations
+```
+### Step 9: Runs the unit test and generate code coverage report 
+```bash
+go test $(go list ./... | grep -v docs | grep -v model | grep -v main.go) -coverprofile cover.out
+go tool cover -html=cover.out
+```
+### Step 10: All configurations done we can run the application 
+```bash
+export GIN_MODE=release
+# For debugging set gin mode to development
+./employee-api
+```
