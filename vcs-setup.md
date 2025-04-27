@@ -23,8 +23,8 @@ This document outlines the design principles, key features, and a working Proof 
   - [Tools Used](#tools-used)
   - [Steps](#steps)
   - [Outcomes](#outcomes)
+- [Prerequisites](#prerequisites)
 - [VCS Setup: Installation & Configuration](#vcs-setup-installation--configuration)
-  - [Prerequisites](#prerequisites)
   - [1. Install Git](#1-install-git)
   - [2. Configure Git](#2-configure-git)
   - [3. Initialize and Clone Repository](#3-initialize-and-clone-repository)
@@ -97,12 +97,12 @@ Show how a team can collaborate using Git, manage branches, and integrate with C
 - Pull Request with CI validation
 - Rollback possible via commit hashes
 
-## VCS Setup: Installation & Configuration
-
-### **Prerequisites**:
+## Prerequisites:
 - OS: Ubuntu / Windows / macOS
 - Git installed
 - Internet connection for remote repository (GitHub/GitLab)
+
+## VCS Setup: Installation & Configuration
 
 ### 1. Install Git
 #### **Ubuntu**:
