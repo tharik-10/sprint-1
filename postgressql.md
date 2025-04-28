@@ -26,6 +26,7 @@ This document provides a concise reference for understanding and using PostgreSQ
   - [Run-time Dependencies](#run-time-dependencies)
   - [Build-time Dependencies](#build-time-dependencies)
 - [PostgreSQL Use Case in attendance-api](#postgresql-use-case-in-attendance-api)
+- [Installation Steps](#installation-steps)
 - [Monitoring](#monitoring)
 - [Disaster Recovery](#disaster-recovery)
 - [Troubleshooting](#troubleshooting)
@@ -107,6 +108,10 @@ In the `OT-MICROSERVICES/attendance-api` project, PostgreSQL is used as the prim
 - Support date/time queries and filtering for reports.
 
 The connection is defined in `app.py`, and data models (like Attendance) are mapped to PostgreSQL tables in `models/attendance.py`.
+
+## Installation Steps
+
+For Installation steps follow this document [Click here for Setup and run the PostgresSQL for POC]
 
 ##  Monitoring 
 
