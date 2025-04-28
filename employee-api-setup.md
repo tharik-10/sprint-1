@@ -135,21 +135,34 @@ sudo nano config.yaml
 sudo nano migration.json
 sudo nano main.go
 ```
-### Step 8: Runs database migrations 
+![Screenshot-136](https://github.com/user-attachments/assets/467cc24c-6040-41d7-b9d9-8db3a741ba09)
+
+### Step 8: Runs database migrations and Build the application 
 ```bash
+make build
+make docker-build
 make run-migrations
 ```
+![Screenshot-139](https://github.com/user-attachments/assets/6c563815-dba6-402e-8695-8535a0c07f6b)
+
 ### Step 9: Runs the unit test and generate code coverage report 
 ```bash
 go test $(go list ./... | grep -v docs | grep -v model | grep -v main.go) -coverprofile cover.out
 go tool cover -html=cover.out
 ```
+![Screenshot-138](https://github.com/user-attachments/assets/6e1679c8-d36b-4c1d-92e5-8a14cb7f2a1a)
+
 ### Step 10: All configurations done we can run the application 
 ```bash
 export GIN_MODE=release
 # For debugging set gin mode to development
 ./employee-api
 ```
+![Screenshot-140](https://github.com/user-attachments/assets/96e38e3b-0494-455b-97d3-7a325e0c1e28)
+
+**The Expected Output of the API**
+![Screenshot-141](https://github.com/user-attachments/assets/a60ed891-9518-4973-920e-bbdf40a0f581)
+
 ## Contact Information
 | Name | Email address         |
 |------|------------------------|
