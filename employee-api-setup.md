@@ -9,6 +9,21 @@
 This document captures the rough steps taken to set up and run the Employee API as part of a POC (Proof of Concept). It ensures the API is functional and ready for demonstration, helps track the installation process, and serves as a foundation for writing the final, detailed documentation. It also provides transparency for reviewers and assists in reproducing the setup when needed.
 
 ## Table of Contents
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+  - [System Requirements](#system-requirements)
+  - [Dependencies](#dependencies)
+    - [Build Time Dependencies](#build-time-dependencies)
+    - [Run Time Dependencies](#run-time-dependencies)
+    - [Other Dependencies](#other-dependencies)
+  - [Important Ports](#important-ports)
+- [Architecture](#architecture)
+  - [Data Flow Diagram](#data-flow-diagram)
+- [Step-by-Step Installation](#step-by-step-installation)
+- [Contact Information](#contact-information)
+- [Reference](#reference)
+
 ## Introduction 
 In [OT-Microservices](https://github.com/OT-MICROSERVICES/employee-api) , the Employee API is built on Golang which integrates with other APIs of the application.
 
