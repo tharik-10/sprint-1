@@ -1,3 +1,4 @@
+![Go Logo](https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg)
 # **Employee-API Setup and run the App for POC**
 
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
