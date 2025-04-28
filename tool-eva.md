@@ -1,4 +1,6 @@
-![image](https://github.com/user-attachments/assets/9af370df-1268-46bb-adc6-d48cb202ea1f)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/9af370df-1268-46bb-adc6-d48cb202ea1f" alt="Image" width="700"/>
+</p>
 
 # **Tool Evaluation of GitOps**
 
@@ -34,16 +36,33 @@ The purpose of this document is to evaluate and compare popular GitOps tools to 
 
 Here’s an overview of various GitOps tools available today:
 
-### 1. **ArgoCD**     
-<img src="https://github.com/user-attachments/assets/79fc2e0e-f689-4645-b2c4-0c60975591f4" width="200"/>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/25d68aa3-9bdc-4403-b8f2-e3ccd4d4a52e" alt="Image" width="700"/>
+</p>
 
-### 2. **Flux**      ![image](https://github.com/user-attachments/assets/55c2e707-0bba-4385-a260-2b5a744a59e0)
+## GitOps Tools Comparison
+|Feature | ArgoCD | Flux | Jenkins X | Weaveworks GitOps | Rancher GitOps|
+|---------|--------|-------|----------|--------------------|---------------|
+|Description | A Kubernetes-native GitOps tool | Kubernetes-native GitOps tool | Kubernetes-based CI/CD platform | GitOps tool for Kubernetes | GitOps integrated with Rancher|
+|Declarative Config | Yes | Yes | Yes | Yes | Yes|
+|Multi-Cluster Support | Yes | Yes | Yes | Yes | Yes|
+|Web UI | Yes | No | Yes | No | Yes|
+|Automation | Continuous Deployment | Continuous Deployment | CI/CD with GitOps integration | GitOps and Continuous Delivery | GitOps for deployment|
+|Sync and Drift Detection | Yes | Yes | Yes | Yes | Yes|
+|CI/CD Integration | Yes | Limited (via extensions) | Fully integrated | No | Yes|
+|Ease of Use | User-friendly UI | Easy CLI, requires setup | Full-stack with auto pipelines | Simple, Kubernetes-centric | Easy if using Rancher|
+|Supported Platforms | Kubernetes | Kubernetes | Kubernetes | Kubernetes | Kubernetes and Rancher|
+|Popularity | High | High | Medium | Medium | Medium|
+|Cost | Free/Open-source | Free/Open-source | Free/Open-source | Free/Open-source | Free/Open-source|
 
-### 3. **Jenkins X**
-![Jenkins X Logo](https://jenkins-x.io/images/jenkins-x-logo.png)
+## Conclusion
+GitOps tools simplify and automate deployments, making infrastructure management more efficient. ArgoCD and Flux are the most popular choices, offering strong features for Kubernetes environments. Jenkins X, Weaveworks GitOps, and Rancher GitOps also provide valuable options depending on specific organizational needs.
 
-### 4. **Weaveworks GitOps**
-![Weaveworks GitOps Logo](https://www.weave.works/images/logos/weaveworks-logo.svg)
+## Contact Information
+| Name | Email address         |
+|------|------------------------|
+| Mohamed Tharik  | md.tharik.sanaatak@mygurukulam.co    |
 
-### 5. **Rancher GitOps**
-![Rancher GitOps Logo](https://rancher.com/docs/rancher/v2.5/en/gitops/assets/images/rancher-logo.svg)
+## Reference
+| Link                                                                 | Description                                               |
+|----------------------------------------------------------------------|-----------------------------------------------------------|
