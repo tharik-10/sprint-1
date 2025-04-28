@@ -1,11 +1,3 @@
-<p align="center">
-  <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" alt="Golang" width="200"/>
-  <img src="https://github.com/user-attachments/assets/0f4e6142-d2f9-45c6-84cd-4c742b64c10e" alt="Redis" width="200"/>
-  <img src="https://github.com/user-attachments/assets/b572ca0c-4d2c-45c6-bb42-258d8e876286" alt="ScyllaDB" width="200"/>
-  <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Git" width="200"/>
-  <img src="https://github.com/user-attachments/assets/75cff202-9fd3-4739-9001-e5636db0423e" alt="Make" width="200"/>
-</p>
-
 # **Employee-API Setup and run the App for POC**
 
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
