@@ -131,3 +131,12 @@ export GIN_MODE=release
 # For debugging set gin mode to development
 ./employee-api
 ```
+## Contact Information
+| Name | Email address         |
+|------|------------------------|
+| Mohamed Tharik  | md.tharik.sanaatak@mygurukulam.co    |
+
+## Reference
+| Link                                                                 | Description                                               |
+|----------------------------------------------------------------------|-----------------------------------------------------------|
+| [Frontend Application](https://github.com/OT-MICROSERVICES/employee-api)                         | For setup and run the API refer to this Repository                  |
