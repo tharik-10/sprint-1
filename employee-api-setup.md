@@ -38,20 +38,20 @@ Before deploying this application, ensure the following system and environment r
 |OS | Ubuntu 22.04|
 
 ### Dependencies
-**Build Time Dependencies**
+#### **Build Time Dependencies**
 |Name | Version | Description|
 |-----|----------|-----------|
 |Go | Latest| Golang compiler for building the application|
 |Git | Latest | Version control system to clone the repository|
 |Make | Latest | Build automation tool to manage build tasks|
 
-**Run Time Dependencies**
+#### **Run Time Dependencies**
 |Name | Version | Description|
 |------|----------|-------------|
 |ScyllaDB | Latest | NoSQL database for storing employee data|
 |Redis | Latest | In-memory data structure store for caching|
 
-**Other Dependencies**
+#### **Other Dependencies**
 |Name | Version | Description|
 |------|----------|-------------|
 |Docker | Latest | Containerization platform to run services like ScyllaDB and Redis|
