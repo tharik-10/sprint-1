@@ -127,6 +127,8 @@ CREATE KEYSPACE employee_db WITH replication = {'class': 'SimpleStrategy', 'repl
 git clone https://github.com/OT-MICROSERVICES/employee-api.git
 cd employee-api
 ```
+![Screenshot-134](https://github.com/user-attachments/assets/7f99d63e-316c-4e83-8a7d-8215f984c64f)
+
 ### Step 7: Configure ip addresses in the main files of the project 
 ```bash
 sudo nano config.yaml
