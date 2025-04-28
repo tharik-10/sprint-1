@@ -37,7 +37,7 @@ The purpose of this document is to evaluate and compare popular GitOps tools to 
 Here’s an overview of various GitOps tools available today:
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/25d68aa3-9bdc-4403-b8f2-e3ccd4d4a52e" alt="Image" width="700"/>
+<img src="https://github.com/user-attachments/assets/7c66148e-641d-4ae4-9420-2c21ea17d7ec" alt="Image" width="1000"/>
 </p>
 
 ## GitOps Tools Comparison
