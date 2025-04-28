@@ -5,10 +5,12 @@
 |----------------|----------------|-----------------|-----------------|-----|------|----|----|
 | 2025-04-25  | 2025-04-25   |     Version 1         |  Mohamed Tharik |Pritam|Khushi|Mukul Joshi |Piyush Upadhyay|
 
-## Introduction 
+## Purpose 
 This document captures the rough steps taken to set up and run the Employee API as part of a POC (Proof of Concept). It ensures the API is functional and ready for demonstration, helps track the installation process, and serves as a foundation for writing the final, detailed documentation. It also provides transparency for reviewers and assists in reproducing the setup when needed.
 
 ## Table of Contents
+## Introduction 
+In [OT-Microservices](https://github.com/OT-MICROSERVICES/employee-api) , the Employee API is built on Golang which integrates with other APIs of the application.
 
 ## Prerequisites
 Before deploying this application, ensure the following system and environment requirements are satisfied.
