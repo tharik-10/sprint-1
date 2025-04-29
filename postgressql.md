@@ -6,7 +6,7 @@
 
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
 |----------------|----------------|-----------------|-----------------|-----|------|----|----|
-| 2025-04-21 | 2025-04-25   |     Version 1         |  Mohamed Tharik |Pritam|Khushi|Mukul Joshi |Piyush Upadhyay|
+| 2025-04-21 | 2025-04-29   |     Version 2         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
 
 ## Introduction
 
@@ -25,15 +25,14 @@ This document provides a concise reference for understanding and using PostgreSQ
 - [Dependencies](#dependencies)
   - [Run-time Dependencies](#run-time-dependencies)
   - [Build-time Dependencies](#build-time-dependencies)
+- [Key Concepts of PostgreSQL](#key-concepts-of-postgresql)
+- [Creating and Managing Data in PostgreSQL](#creating-and-managing-data-in-postgresql)
 - [PostgreSQL Use Case in attendance-api](#postgresql-use-case-in-attendance-api)
 - [Installation Steps](#installation-steps)
-- [Monitoring](#monitoring)
-- [Disaster Recovery](#disaster-recovery)
 - [Troubleshooting](#troubleshooting)
 - [Conclusion](#conclusion)
 - [Contact Information](#contact-information)
 - [Reference](#reference)
-
 
 ## What is PostgreSQL ?
 
@@ -41,12 +40,12 @@ This document provides a concise reference for understanding and using PostgreSQ
 
 ## Why Use PostgreSQL ?
 
-- Open Source & Free: No licensing fees, strong community support.
-- Advanced Features: Supports complex queries, JSON, indexing (GIN, GiST, BRIN), and ACID compliance.
-- Extensible: Custom data types, operators, and powerful extensions like PostGIS.
-- Secure & Stable: SSL, advanced authentication, and strong data integrity.
-- Scalable: Handles large datasets and high concurrency with ease.
-- Cross-Platform: Compatible with Linux, Windows, macOS, and more.
+- **Open Source & Free**: No licensing fees, strong community support.
+- **Advanced Features**: Supports complex queries, JSON, indexing (GIN, GiST, BRIN), and ACID compliance.
+- **Extensible**: Custom data types, operators, and powerful extensions like PostGIS.
+- **Secure & Stable**: SSL, advanced authentication, and strong data integrity.
+- **Scalable**: Handles large datasets and high concurrency with ease.
+- **Cross-Platform**: Compatible with Linux, Windows, macOS, and more.
 
 ## Key Features
 
@@ -90,13 +89,14 @@ This document provides a concise reference for understanding and using PostgreSQ
 
 ### Run-time Dependencies
 
-- `libpq`: PostgreSQL C API
+- `libreadline`:	Allows command-line editing (for tools like psql)
 - `openssl`: For secure SSL communication
 
 ### Build-time Dependencies
 
-- `gcc`, `make`
-- `readline`, `zlib`, `libssl-dev`
+- `gcc`: GNU Compiler Collection
+- `make`: Build automation tool.For more details about `make` refer to this repository [link](https://github.com/Cloud-NInja-snaatak/Documentation/blob/aditya_scrum40/commonstack/dependencies/make/documentation.md)
+- `zlib`: Compression library.(for compressing/decompressing data in backups etc.)
 
 ## PostgreSQL Use Case in `attendance-api`
 
@@ -109,31 +109,41 @@ In the `OT-MICROSERVICES/attendance-api` project, PostgreSQL is used as the prim
 
 The connection is defined in `app.py`, and data models (like Attendance) are mapped to PostgreSQL tables in `models/attendance.py`.
 
+## Key Concepts of PostgreSQL
+
+| Concept               | Description |
+|------------------------|-------------|
+| Database               | A collection of schemas, tables, and related objects. |
+| Schema                 | A namespace that contains named database objects like tables, views, etc. |
+| Table                  | A collection of rows organized into columns, used to store structured data. |
+| Row                   | A single record inside a table, made up of multiple column values. |
+| Column                 | A single field of data within a table; defines data type and constraints. |
+| Primary Key            | A column (or set of columns) that uniquely identifies each row in a table. |
+| Foreign Key            | A column that establishes a relationship between two tables. |
+| Index                  | Improves query performance by allowing faster data retrieval. |
+| View                   | A virtual table based on a SQL query; used to simplify complex queries. |
+| Transaction            | A sequence of operations performed as a single logical unit of work (ACID properties). |
+| Role                   | Represents a database user or a group of users with specific privileges. |
+
+## Creating and Managing Data in PostgreSQL
+
+| Operation               | Command Example |
+|--------------------------|-----------------|
+| Create Database          | `CREATE DATABASE mydb;` |
+| Create Table             | `CREATE TABLE employees (id SERIAL PRIMARY KEY, name VARCHAR(100));` |
+| Insert Data              | `INSERT INTO employees (name) VALUES ('John Doe');` |
+| Update Data              | `UPDATE employees SET name = 'Jane Doe' WHERE id = 1;` |
+| Delete Data              | `DELETE FROM employees WHERE id = 1;` |
+| Select Data              | `SELECT * FROM employees;` |
+| Create Index             | `CREATE INDEX idx_name ON employees (name);` |
+| Drop Table               | `DROP TABLE employees;` |
+| Drop Database            | `DROP DATABASE mydb;` |
+| Create Role/User         | `CREATE ROLE username LOGIN PASSWORD 'password';` |
+| Grant Privileges         | `GRANT SELECT, INSERT ON employees TO username;` |
+
 ## Installation Steps
 
 For Installation steps follow this document [Click here for Setup and run the PostgresSQL for POC]
-
-##  Monitoring 
-
-|Tool | Purpose|
-|------|---------|
-|**pgAdmin** | GUI for managing and visualizing PostgreSQL|
-|**pg_stat_statements** | Analyze slow queries|
-|**Prometheus + Grafana** | Real-time performance metrics|
-
-## Disaster Recovery
-**Backup**
-```bash
-pg_dump -U <user> -d <db> -F c -f backup.dump
-```
-**Restore**
-```bash
-pg_restore -U <user> -d <db> backup.dump
-```
-**Automate with Cron**
-```bash
-0 2 * * * pg_dump -U dbuser -d app_db -F c -f /backups/db_$(date +\%F).dump
-```
 
 ## Troubleshooting
 
@@ -159,4 +169,4 @@ PostgreSQL plays a critical role in the OT-MICROSERVICES/attendance-api by offer
 
 | Links                                                                                                                                                                                                                     | Descriptions                                                                                              |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-
+|[Introduction to PostgreSQL](https://www.geeksforgeeks.org/what-is-postgresql-introduction/)|In this we get to know what is PostreSQL and how to install it |
