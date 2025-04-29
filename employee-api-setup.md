@@ -3,7 +3,7 @@
 
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
 |----------------|----------------|-----------------|-----------------|-----|------|----|----|
-| 2025-04-25  | 2025-04-25   |     Version 1         |  Mohamed Tharik |Pritam|Khushi|Mukul Joshi |Piyush Upadhyay|
+| 2025-04-25  | 2025-04-29   |     Version 2         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
 
 ## Purpose 
 This document captures the rough steps taken to set up and run the Employee API as part of a POC (Proof of Concept). It ensures the API is functional and ready for demonstration, helps track the installation process, and serves as a foundation for writing the final, detailed documentation. It also provides transparency for reviewers and assists in reproducing the setup when needed.
@@ -25,7 +25,7 @@ This document captures the rough steps taken to set up and run the Employee API 
 - [Reference](#reference)
 
 ## Introduction 
-In [OT-Microservices](https://github.com/OT-MICROSERVICES/employee-api) , the Employee API is built on Golang which integrates with other APIs of the application.
+In [OT-Microservices](https://github.com/OT-MICROSERVICES/employee-api) , the Employee API is built on Golang which integrates with other APIs of the application.For detailed information of Employee-api refer to this repository [link]()
 
 ## Prerequisites
 Before deploying this application, ensure the following system and environment requirements are satisfied.
@@ -71,41 +71,39 @@ The employee-api follows a microservices architecture with the following compone
 - **Database Layer**: ScyllaDB serves as the primary data store, while Redis is used for caching to enhance performance.
 
 ### Data Flow Diagram:
-<img src="https://github.com/user-attachments/assets/300e337d-0cc1-4c5a-9a21-e85f49ba1de2" width="300" />
+![image](https://github.com/user-attachments/assets/3567384b-2144-4264-ada5-9d6585d3d9f9)
 
 ## Step-by-Step Installation
 ### Step 1: Install Software Dependencies
 ```bash
 sudo apt update
-sudo apt install -y git golang make docker.io
+sudo apt install -y git golang make docker.io redis-server make 
 ```
 ### Step 2: Download the required Dependencies
 ```bash 
 # Create Keyring Directory
 sudo mkdir -p /etc/apt/keyrings
-
 # Add ScyllaDB GPG Key
 sudo gpg --homedir /tmp --no-default-keyring --keyring /etc/apt/keyrings/scylladb.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys a43e06657bac99e3
-
-# Add ScyllaDB Repository
+```
+#### Add ScyllaDB Repository
+```bash 
 sudo wget -O /etc/apt/sources.list.d/scylla.list http://downloads.scylladb.com/deb/debian/scylla-6.2.list
-
-# Update Package List and Install ScyllaDB
+```
+```bash
+# Update Package List and Install ScyllaDB 
 sudo apt update
 sudo apt install scylla
-
-# Run Scylla I/O Setup
+```
+#### Run Scylla I/O Setup
+```bash 
 sudo scylla_io_setup
-
 # Start ScyllaDB Server
 sudo systemctl start scylla-server
-
-# Download the redis server for cache and Make for automate process
-sudo apt install redis-server make 
-
-# Download and Extract the Migrate package 
+```
+#### Download and Extract the Migrate package 
+```bash
 curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
-
 # Move to System Binary Path for Migrate package 
 sudo mv migrate /usr/local/bin/migrate
 ```
@@ -162,6 +160,9 @@ export GIN_MODE=release
 
 **The Expected Output of the API**
 ![Screenshot-141](https://github.com/user-attachments/assets/a60ed891-9518-4973-920e-bbdf40a0f581)
+
+## Conclusion
+The Employee API has been successfully set up and verified for the POC. All necessary dependencies were installed, configurations applied, and the API was built and tested. This setup confirms that the service is functional and ready for integration with other microservices.
 
 ## Contact Information
 | Name | Email address         |
