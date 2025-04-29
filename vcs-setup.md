@@ -4,177 +4,103 @@
 
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
 |----------------|----------------|-----------------|-----------------|-----|------|----|----|
-| 2025-04-21  | 2025-04-25   |     Version 1         |  Mohamed Tharik |Pritam|Khushi|Mukul Joshi |Piyush Upadhyay|
+| 2025-04-23  | 2025-04-28   |     Version 1         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
 
 ## Purpose
 
-This document outlines the design principles, key features, and a working Proof of Concept (POC) for implementing a Version Control System (VCS) in a software development lifecycle. It also includes a detailed installation and setup guide to get your VCS up and running using tools like Git.
+The purpose of this document is to:
+
+- Provide an overview of Version Control Systems (VCS).
+- Explain the key features and benefits of using VCS.
+- Guide users on how to set up and configure VCS.
+- Detail the VCS workflow in a typical software development environment.
+- Provide a Proof of Concept (PoC) to demonstrate how VCS can be implemented and used.
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [VCS Design Overview](#vcs-design-overview)
-  - [1. Architecture](#1-architecture)
-  - [2. Data Structure](#2-data-structure)
-  - [3. Branching Strategy](#3-branching-strategy)
-  - [4. Workflow Design](#4-workflow-design)
-- [Proof of Concept (POC)](#proof-of-concept-poc)
-  - [Objective](#objective)
-  - [Tools Used](#tools-used)
-  - [Steps](#steps)
-  - [Outcomes](#outcomes)
-- [Prerequisites](#prerequisites)
-- [VCS Setup: Installation & Configuration](#vcs-setup-installation--configuration)
-  - [1. Install Git](#1-install-git)
-  - [2. Configure Git](#2-configure-git)
-  - [3. Initialize and Clone Repository](#3-initialize-and-clone-repository)
-  - [4. Authentication](#4-authentication)
-  - [5. Basic Workflow](#5-basic-workflow)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [Disaster Recovery](#disaster-recovery)
+- [Key Features of VCS](#key-features-of-vcs)
+- [VCS Setup Installation and Configuration](#vcs-setup-installation-and-configuration)
+  - [Choose a VCS](#choose-a-vcs)
+  - [Install VCS Software](#install-vcs-software)
+  - [Initialize a Repository](#initialize-a-repository)
+  - [Connect to a Remote Repository](#connect-to-a-remote-repository)
+  - [Commit Changes](#commit-changes)
+  - [Push to Remote Repository](#push-to-remote-repository)
+- [VCS Workflow](#vcs-workflow)
+- [Benefits of VCS](#benefits-of-vcs)
 - [Conclusion](#conclusion)
 - [Contact Information](#contact-information)
 - [References](#references)
 
+
 ## Introduction 
 
-A Version Control System (VCS) is a critical tool that manages changes to source code over time. It allows teams to work collaboratively, track revisions, roll back changes, and maintain code integrity throughout the software development lifecycle.
+A Version Control System (VCS) is a tool that helps software developers track and manage changes to source code over time. It allows multiple users to work on the same project, maintain historical versions of the code, and manage different branches of development without overwriting each other's work. VCS is an essential part of modern software development, especially in collaborative projects.
 
-## VCS Design Overview
+## Key Features of VCS
 
-### 1. Architecture
+| **Feature**            | **Description**                                                                                                                                      |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Track Changes**       | VCS records every change made to the codebase, including who made the change, when it was made, and what the change was.                             |
+| **Branching and Merging** | Developers can work on separate branches and later merge their changes back into the main codebase.                                                |
+| **Revert Changes**      | If an error is introduced, VCS allows reverting to a previous version of the code.                                                                 |
+| **Collaboration**       | Multiple developers can work on different parts of a project simultaneously without interfering with each other’s work.                             |
+| **History Management**  | The system stores historical versions of the project, allowing developers to review previous versions of the code.                                  |
+| **Conflict Resolution** | VCS helps manage and resolve conflicts when changes from different developers overlap.                                                             |
 
-- **Client-Server Model**: Central server (e.g., GitHub/GitLab) with developers pushing/pulling code.
-- **DVCS (Distributed)**: Every developer has the full repository (e.g., Git).
-- **Centralized VCS**: Single central repo, less flexible (e.g., SVN).
+## VCS Setup Installation and Configuration
 
-### 2. Data Structure
+### Choose a VCS
+There are two types of VCS:
 
-- **Git (Snapshots)**: Stores the full state of files in each commit.
-- **SVN (Deltas)**: Stores only changes between versions.
-- **Commit Hashes**: SHA-1 hashes uniquely identify commits.
-- **HEAD**: Pointer to the current branch/commit.
+- **Centralized Version Control System (CVCS)**: In this system, all files are stored in a central repository. Examples include Subversion (SVN).
+  
+- **Distributed Version Control System (DVCS)**: Each developer has a local copy of the repository, and changes are later pushed to the central repository. Examples include Git, Mercurial.
 
-### 3. Branching Strategy
+### Install VCS Software
+To use a VCS, install the relevant software on your machine. For example, to set up **Git**, you would install it using a package manager or download it from the official website.
 
-- `main` / `master`: Stable production-ready code.
-- `develop`: Active development and integration.
-- `feature/*`: Feature-specific development.
-- `release/*`, `hotfix/*`: For releases and urgent fixes.
+### Initialize a Repository
+After installing the VCS software, initialize a new repository within your project. This marks the project folder as a version-controlled repository.
 
-### 4. Workflow Design
+### Connect to a Remote Repository
+If you’re collaborating, you will connect to a remote repository on platforms like GitHub, GitLab, or Bitbucket. This allows multiple developers to work on the same codebase.
 
-- **Git Flow**: Structured; good for planned releases.
-- **GitHub Flow**: Lightweight; great with CI/CD.
-- **Trunk-Based**: Fast-paced development on `main` with feature flags.
+### Commit Changes
+Once changes are made to the codebase, they need to be committed to the version control system. A commit records the changes and allows tracking of who made them and when.
 
-## Proof of Concept (POC)
+### Push to Remote Repository
+After committing changes locally, they are pushed to the remote repository to share them with other team members. This ensures that the entire team has access to the latest changes.
 
-### **Objective**:
-Show how a team can collaborate using Git, manage branches, and integrate with CI.
+## VCS Workflow
 
-### **Tools Used**:
-
-- **Git** for versioning
-- **GitHub** for remote hosting
-- **GitHub** Actions for automation
-
-### **Steps**:
-1. Initialize a Git repo:
-`git init`
-2. Create and push to GitHub:
-`git remote add origin https://github.com/org/project.git`
-3. Branch and feature development:
-`git checkout -b feature/login-page`
-4. Push and create PR on GitHub
-5. Set up GitHub Actions to run tests on push
-6. Merge to `main` via PR after approval
-
-### **Outcomes**
-
-- Full code history available
-- Pull Request with CI validation
-- Rollback possible via commit hashes
-
-## Prerequisites:
-- OS: Ubuntu / Windows / macOS
-- Git installed
-- Internet connection for remote repository (GitHub/GitLab)
-
-## VCS Setup: Installation & Configuration
-
-### 1. Install Git
-#### **Ubuntu**:
-```bash
-sudo apt update
-sudo apt install git -y
+```mermaid
+graph TD
+A[Clone Repository] --> B[Create Branch]
+B --> C[Make Changes]
+C --> D[Stage Changes]
+D --> E[Commit Changes]
+E --> F[Push to Remote]
+F --> G[Create Pull Request / Merge Request]
+G --> H[Code Review]
+H --> I[Merge to Main]
 ```
-#### **macOS (Homebrew)**:
-```bash
-brew install git
-```
-#### **Windows**:
-Download and install Git from the official website: [git-scm.com](https://git-scm.com)
 
-### 2. Configure Git
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
-git config --global core.editor "vim" # Optional
-```
-### 3. Initialize and Clone Repository
-```
-git init  # Create new local repo
-git clone https://github.com/your-org/your-repo.git
-```
-### 4. Authentication
+## Benefits of VCS
 
-- Use SSH keys or Personal Access Tokens (PAT) for authentication.
-- Generate SSH key: ssh-keygen -t ed25519
-- Add key to GitHub/GitLab in account settings.
-
-### 5. Basic Workflow
-```bash
-git add .
-git commit -m "Initial commit"
-git push origin main
-```
-## Best Practices 
-
-- Write meaningful commit messages (<type>: <short summary>)
-- Follow branching strategies (e.g., Git Flow)
-- Use `.gitignore` to avoid tracking unwanted files
-- Tag releases (`git tag -a v1.0`)
-- Regularly pull latest changes before starting work
-- Protect main branches with required PR reviews
-
-## Troubleshooting
-
-### Git Push/Pull Errors
-- **Solution**: Ensure you have the correct remote URL using `git remote -v`.
-- **Fix permission denied**: Set up SSH keys or check your GitHub token.
-- **Merge conflicts**: Run `git pull --rebase` or resolve conflicts manually before committing.
-
-### Branch Confusion
-- Use `git branch -a` to list local and remote branches.
-- Use `git checkout branch-name` to switch.
-- Run `git status` often to avoid confusion on which branch you're working in.
-
-### Untracked or Lost Changes
-- Use `git stash` to temporarily store local changes.
-- Recover deleted files with `git checkout HEAD -- filename`.
-
-## Disaster Recovery
-
-### Backup Repositories
-- Clone remote repo regularly:  
-  ```bash
-  git clone --mirror https://github.com/org/project.git
+| Benefit           | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| **Collaboration**  | Facilitates teamwork and smooth collaboration among developers, even if they are in different locations. |
+| **Backup**         | Acts as a backup for the entire project, reducing the risk of losing work.  |
+| **Code Integrity** | Protects the integrity of the project by allowing developers to roll back to a known stable version. |
+| **Efficiency**     | Improves development efficiency by reducing the time spent managing conflicts and coordinating changes. |
+| **Audit and Tracking** | Enables auditing and tracking of the changes, providing insights into the history and evolution of the codebase. |
+| **Integration**    | Easily integrates with other tools like continuous integration/continuous deploymen
 
 ## Conclusion
 
-Version Control Systems like Git are essential for modern software development. They enable teams to collaborate efficiently, track every change, and maintain clean, structured workflows using branches. With tools like GitHub or GitLab, teams can integrate CI/CD pipelines, manage code reviews via pull requests, and ensure high code quality. Combined with regular backups and proper recovery strategies, a well-designed VCS setup enhances productivity, code safety, and long-term maintainability.
+A Version Control System (VCS) is essential for modern software development, enabling collaboration, tracking changes, and maintaining code integrity. By following the setup and workflow guidelines, teams can effectively manage code across environments and ensure smooth development. Implementing VCS enhances efficiency and reliability in software delivery.
 
 ## Contact Information
 
@@ -186,4 +112,5 @@ Version Control Systems like Git are essential for modern software development. 
 
 | Links                                                                                                                                                                                                                     | Descriptions                                                                                              |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-|[Install Git - GitHub Guides](https://github.com/git-guides/install-git)                | Official GitHub guide for installing Git          |  
+|[Install Git - GitHub Guides](https://github.com/git-guides/install-git)                | Official GitHub guide for installing Git          |
+[Introduction to VCS](https://www.geeksforgeeks.org/version-control-systems/)|In this we can get to know the detailed VCS types,key features etc...| 
