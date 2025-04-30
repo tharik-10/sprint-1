@@ -66,3 +66,6 @@ GitOps tools simplify and automate deployments, making infrastructure management
 ## Reference
 | Link                                                                 | Description                                               |
 |----------------------------------------------------------------------|-----------------------------------------------------------|
+| [Some of the GitOps tools to explore](https://spacelift.io/blog/gitops-tools)                              | Detailed blog post explaining top GitOps tools with features, pros, and cons.                |
+| [Other Important GitOPs tools](https://codefresh.io/learn/gitops/gitops-tools-6-tools-you-need-to-know/) | Overview of 6 essential GitOps tools, including comparisons and use cases.                   |
+| [Detailed explanation of GitOps](https://about.gitlab.com/topics/gitops/)                             | GitLab's official page explaining their GitOps approach and how it integrates into workflows.|
