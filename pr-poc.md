@@ -5,14 +5,13 @@
 # **POC of PR (Pull Request)**
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
 |----------------|----------------|-----------------|-----------------|-----|------|----|----|
-| 2025-04-28 | 2025-04-28   |     Version 1         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
+| 2025-04-28 | 2025-04-30   |     Version 1         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
 
 ## Purpose
 The purpose of this document is to present a Proof of Concept (POC) for implementing a Pull Request (PR) strategy to enhance team collaboration, code quality, and traceability in modern development workflows. It emphasizes the importance of managing PRs to support incremental changes and better parallel development, using Git platforms like GitHub or GitLab.
 
 ## Table of Contents 
-- [Purpose](#purpose)
-- [Table of Contents](#table-of-contents)
+
 - [Introduction](#introduction)
 - [What is PR ?](#what-is-pr-)
 - [PR Rules and Best Practices](#pr-rules-and-best-practices)
@@ -71,9 +70,17 @@ git push origin <your-feature-branch>
 ### Step 7: Open a Pull Request
 - Go to your repository on GitHub.
 - Click on the "Compare & pull request" button, or go to Pull Requests tab and click "New Pull Request".
+
+![Screenshot-147](https://github.com/user-attachments/assets/bec6aadc-8f18-4565-aeb4-3faebc7ef811)
+
 - Choose the base branch (typically main or develop) and the compare branch (the branch you just pushed).
+
+![Screenshot-148](https://github.com/user-attachments/assets/825f3441-e683-4bbe-921e-031c93efbef6)
+
 - Add a title and detailed description of your PR.
 - Click "Create Pull Request".
+
+![Screenshot-149](https://github.com/user-attachments/assets/01d3f12c-7b3d-48a8-9a0a-0b70e8376de6)
 
 ### Step 8: Review and Update (if needed)
 - Wait for the code review from your team.
