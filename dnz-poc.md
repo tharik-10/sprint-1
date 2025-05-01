@@ -10,6 +10,18 @@ This document outlines the Proof of Concept (POC) for acquiring a domain name an
 
 ## Table of Contents 
 
+1. [Introduction](#introduction)  
+2. [What is DNS?](#what-is-dns)  
+3. [Why DNS Setup is Important for an Application?](#why-dns-setup-is-important-for-an-application)  
+4. [Prerequisites](#prerequisites)  
+5. [Architecture](#architecture)  
+6. [Architecture Overview](#architecture-overview)  
+7. [Step-by-Step Guide for the POC](#step-by-step-guide-for-the-poc)  
+8. [Best Practices](#best-practices)  
+9. [Conclusion](#conclusion)  
+10. [Contact Information](#contact-information)  
+11. [Reference](#reference)
+
 ## Introduction 
 DNS (Domain Name System) is a critical service that allows users to access applications and services on the internet using human-readable domain names (like www.example.com) rather than complex numerical IP addresses. The purpose of this POC is to acquire a domain, configure the DNS, and set it up for an application to enable its access via the domain.
 
