@@ -1,9 +1,8 @@
-![Go Logo](https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg)
 # **Employee-API Setup and run the App for POC**
 
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
 |----------------|----------------|-----------------|-----------------|-----|------|----|----|
-| 2025-04-25  | 2025-04-29   |     Version 2         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
+| 2025-04-25  | 2025-05-01   |     Version 2         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
 
 ## Purpose 
 This document captures the rough steps taken to set up and run the Employee API as part of a POC (Proof of Concept). It ensures the API is functional and ready for demonstration, helps track the installation process, and serves as a foundation for writing the final, detailed documentation. It also provides transparency for reviewers and assists in reproducing the setup when needed.
@@ -16,7 +15,6 @@ This document captures the rough steps taken to set up and run the Employee API 
   - [Dependencies](#dependencies)
     - [Build Time Dependencies](#build-time-dependencies)
     - [Run Time Dependencies](#run-time-dependencies)
-    - [Other Dependencies](#other-dependencies)
   - [Important Ports](#important-ports)
 - [Architecture](#architecture)
   - [Data Flow Diagram](#data-flow-diagram)
@@ -25,7 +23,7 @@ This document captures the rough steps taken to set up and run the Employee API 
 - [Reference](#reference)
 
 ## Introduction 
-In [OT-Microservices](https://github.com/OT-MICROSERVICES/employee-api) , the Employee API is built on Golang which integrates with other APIs of the application.For detailed information of Employee-api refer to this repository [link]()
+In [OT-Microservices](https://github.com/OT-MICROSERVICES/employee-api) , the Employee API is built on Golang which integrates with other APIs of the application.For detailed information of Employee-api refer to this repository [link](https://github.com/Cloud-NInja-snaatak/Documentation/blob/aditya_SCRUM-86/ot_ms_understanding/application/employee/documentation.md)
 
 ## Prerequisites
 Before deploying this application, ensure the following system and environment requirements are satisfied.
@@ -51,15 +49,10 @@ Before deploying this application, ensure the following system and environment r
 |ScyllaDB | Latest | NoSQL database for storing employee data|
 |Redis | Latest | In-memory data structure store for caching|
 
-#### **Other Dependencies**
-|Name | Version | Description|
-|------|----------|-------------|
-|Docker | Latest | Containerization platform to run services like ScyllaDB and Redis|
-
 ### Important Ports
 |Port | Direction | Description|
 |-------|----------|-------------|
-|8080 | Outbound | Used by the Go application server|
+|8080 | Outbound | Used by the Employee-api server|
 |9042 | Inbound | Used by ScyllaDB|
 |6379 | Inbound | Used by Redis|
 
@@ -138,11 +131,8 @@ sudo nano main.go
 ### Step 8: Runs database migrations and Build the application 
 ```bash
 make build
-make docker-build
 make run-migrations
 ```
-![Screenshot-139](https://github.com/user-attachments/assets/6c563815-dba6-402e-8695-8535a0c07f6b)
-
 ### Step 9: Runs the unit test and generate code coverage report 
 ```bash
 go test $(go list ./... | grep -v docs | grep -v model | grep -v main.go) -coverprofile cover.out
